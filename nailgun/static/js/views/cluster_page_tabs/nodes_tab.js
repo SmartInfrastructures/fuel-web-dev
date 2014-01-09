@@ -381,8 +381,11 @@ function(utils, models, commonViews, dialogViews, nodesManagementPanelTemplate, 
             // check uncompatible roles
             var selectedRoles = _.filter(this.$('input'), function(input) {return $(input).prop('indeterminate') || $(input).prop('checked');}).map(function(input) {return $(input).val();});
             _.each(this.getListOfUncompatibleRoles(selectedRoles), function(role) {
-                this.$('input[value=' + role + ']').prop('disabled', true);
-                this.$('.role-conflict.' + role).text('This role cannot be combined with the other roles already selected.');
+            var r = role.split(",");
+            for (var i in r) {
+                this.$('input[value=' + r[i] + ']').prop('disabled', true);
+                this.$('.role-conflict.' + r[i]).text('This role cannot be combined with the other roles already selected.');
+            }
             }, this);
             // non-ha deployment mode restriction: environment can not have more than one controller node
             if (this.cluster.get('mode') == 'multinode') {
@@ -1384,3 +1387,4 @@ function(utils, models, commonViews, dialogViews, nodesManagementPanelTemplate, 
 
     return NodesTab;
 });
+

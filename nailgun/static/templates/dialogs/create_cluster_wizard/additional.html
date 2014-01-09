@@ -1,3 +1,18 @@
+<script type="text/javascript">
+  $( "#dcrm").change(function() {
+  if ($('#dcrm').is(':checked')) {
+    $("#pivot").attr( 'disabled', false);
+    $("#pivot").attr( 'checked', true);
+    $("#pulsar").attr( 'disabled', false);
+  }
+  else {
+    $("#pivot").attr( 'disabled', true);
+    $("#pivot").attr( 'checked', false);
+    $("#pulsar").attr( 'disabled', true);
+  }
+});
+</script>
+      
 <% if (disabled && release) { %>
   <div class="alert" style="margin-bottom: 10px">Additional services are not available in <%- release.get('name') %></div>
 <% } %>
@@ -6,26 +21,65 @@
     <div class="control-group">
       <% var services = [
         {
-            name: 'savanna',
-            label: 'Install Savanna',
-            description: 'Savanna enables on demand provisioning of Hadoop clusters to be deployed on OpenStack utilizing a variety of vendor distributions.'
-        },{
-            name: 'murano',
-            label: 'Install Murano',
-            description: 'Murano enables windows based datacenter services like Active Directory, IIS, Microsoft SQL and ASP.NET to be deployed on OpenStack.'
+            name: 'dcrm',
+            label: 'Install FI-WARE DCRM GE',
+            description: 'The DCRM GE provides the basic Virtual Machine (VM) hosting capabilities, as well as management of the corresponding resources within the DataCenter that hosts a particular XIFI Cloud Instance. '
         }
-      ] %>
+      ]
+      var dcrm_schedulers = [
+        {
+        name: 'dcrm_scheduler',
+        value: 'pivot',
+        label: 'Pivot scheduler',
+        description: '',
+        default: '1'
+        },
+        {
+        name: 'dcrm_scheduler',
+        value: 'pulsar',
+        label: 'Pulsar scheduler',
+        description: '',
+        default: '0'
+        }
+      ]
+      %>
       <% _.each(services, function(service) { %>
+        <% if (service.name == 'dcrm') { %>
         <label class="parameter-box clearfix">
           <div class="parameter-control">
             <div class="custom-tumbler">
-              <input type="checkbox" name="<%= service.name %>" />
+              <input id="<%= service.name %>" type="checkbox" name="<%= service.name %>" />
               <!-- [if !IE |(gte IE 9)]> --><span>&nbsp;</span><!-- <![endif] -->
             </div>
           </div>
           <div class="parameter-name"><%= service.label %></div>
         </label>
         <div class="modal-parameter-description"><%= service.description %></div>
+         <% _.each(dcrm_schedulers, function(scheduler) { %>
+          <label class="parameter-box clearfix">
+          <div class="sub-parameter-control">
+            <div class="custom-tumbler">
+              <input type="radio" id="<%= scheduler.value %>" name="<%= scheduler.name %>" value="<%= scheduler.value %>" disabled='disabled'/>
+              <!-- [if !IE |(gte IE 9)]> --><span>&nbsp;</span><!-- <![endif] -->
+            </div>
+          </div>
+          <div class="parameter-name"><%= scheduler.label %></div>
+        </label>
+        <div class="modal-parameter-description"><%= scheduler.description %></div>
+         <% }) %>
+        <% } %>
+      <% if (service.name != 'dcrm') { %>
+        <label class="parameter-box clearfix">
+          <div class="parameter-control">
+            <div class="custom-tumbler">
+              <input id="<%= service.name %>" type="checkbox" name="<%= service.name %>" />
+              <!-- [if !IE |(gte IE 9)]> --><span>&nbsp;</span><!-- <![endif] -->
+            </div>
+          </div>
+          <div class="parameter-name"><%= service.label %></div>
+        </label>
+        <div class="modal-parameter-description"><%= service.description %></div>
+        <% } %>
       <% }) %>
     </div>
   </fieldset>

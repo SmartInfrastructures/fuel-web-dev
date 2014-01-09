@@ -2,7 +2,7 @@
     "en-US": {
         "translation": {
             "common": {
-                "title": "Fuel Dashboard"
+                "title": "Fi-Ops Dashboard"
             },
             "navbar": {
                 "environments": "Environments",
@@ -30,10 +30,10 @@
                 "title": "Support",
                 "contact_text": "Do not hesitate to report a problem or suggest an improvement by clicking the button below. We will get back to you as soon as possible.",
                 "irc_text": "If you have any questions, you can reach out developers at IRC channel",
-                "log_text": "If you have encountered some bugs or errors while using Fuel, you may also need to provide the support team with Fuel logs. You can download them by clicking the button below.",
+                "log_text": "If you have encountered some bugs or errors while using Fi-Ops, you may also need to provide the support team with Fi-Ops logs. You can download them by clicking the button below.",
                 "contact_support": "Contact support",
                 "register_fuel_title": "Register FUEL",
-                "register_fuel_content": "Registering will ensure that you receive important notifications about issues and new versions of Fuel. In addition, you will receive access to our basic support services for the next 30 days!",
+                "register_fuel_content": "Registering will ensure that you receive important notifications about issues and new versions of Fi-Ops. In addition, you will receive access to our basic support services for the next 30 days!",
                 "download_diagnostic_snapshot_text": "Download Diagnostic Snapshot",
                 "gen_logs_snapshot_text": "Generating logs snapshot...",
                 "loading": "Loading...",
@@ -78,8 +78,8 @@
             "capacity_page": {
                 "title": "Capacity Audit",
                 "license_usage": "License Usage Report",
-                "fuel_version": "Fuel version",
-                "fuel_uuid": "Fuel UUID",
+                "fuel_version": "Fi-Ops version",
+                "fuel_uuid": "Fi-Ops UUID",
                 "env_name": "Environment Name",
                 "node_count": "Node Count",
                 "total_number_alloc_nodes": "Total number of allocated node",
@@ -120,7 +120,7 @@
                 "title": "支持",
                 "contact_text": "欢迎提出反馈和改进意见，请点击下面的按钮，我们将尽快回复您。",
                 "irc_text": "如果您有任何问题，可通过IRC（freenode.net网络的 #fuel 频道）联系开发者。",
-                "log_text": "如果您在使用Fuel Web的过程中遇到任何错误或异常，可能需要将日志提交给支持团队，请点击按钮下载：",
+                "log_text": "如果您在使用Fi-Ops Web的过程中遇到任何错误或异常，可能需要将日志提交给支持团队，请点击按钮下载：",
                 "contact_support": "联系支持",
                 "download_logs": "下载日志"
             },
@@ -406,7 +406,7 @@
 
                 "rhel_license": {
                     "title": "红帽企业版Linux账户设置",
-                    "alert_text": "安装红帽版的OpenStack平台, 你首先必须下载RHOS和RHEL并缓存在Fuel的主节点上。请选择你的订阅并在下面输入你的凭据开始下载。",
+                    "alert_text": "安装红帽版的OpenStack平台, 你首先必须下载RHOS和RHEL并缓存在Fi-Ops的主节点上。请选择你的订阅并在下面输入你的凭据开始下载。",
                     "bt_cancel": "取消",
                     "redhat_username": "红帽账户",
                     "redhat_password": "红帽密码",
@@ -418,7 +418,7 @@
                     "title": "新建OpenStack环境",
                     "name": "名称",
                     "openstack_release": "OpenStack版本",
-                    "alert_text": "在部署红帽的openstack时，首先必须先下载RHOS和RHEL并缓存在Fuel的主节点上。你可以通过版本页面或则选择你的订阅类型并输入你的凭证。RHEL和RHOS将自动下载并缓存到你的创建的环境中。",
+                    "alert_text": "在部署红帽的openstack时，首先必须先下载RHOS和RHEL并缓存在Fi-Ops的主节点上。你可以通过版本页面或则选择你的订阅类型并输入你的凭证。RHEL和RHOS将自动下载并缓存到你的创建的环境中。",
                     "bt_cancel": "取消",
                     "bt_create": "创建"
                 },

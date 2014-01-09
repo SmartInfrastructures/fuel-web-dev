@@ -3,7 +3,6 @@
 
 html {
   background-color: #39444F;
-  background-image: url(../img/bg-main.png);
   background-repeat: repeat;
   font-family: 'Segoe UI', Arial, 'Helvetica Neue', Helvetica, Oswald, Verdana, Tahoma, Arial, san-serif;
   height: 100%;
@@ -107,21 +106,12 @@ h6.page-title {
   border: solid 1px #1f2328;
   border-radius: 0px 0px 4px 4px;
   overflow: hidden;
-  color: #999999;
+  
   font-weight: 200;
 
   -webkit-box-shadow: 0 3px 9px rgba(0,0,0,.55), inset 0 -5px rgba(34,34,35,.75);
   -moz-box-shadow: 0 3px 9px rgba(0,0,0,.55), inset 0 -5px rgba(34,34,35,.75);
   box-shadow: 0 3px 9px rgba(0,0,0,.55), inset 0 -5px rgba(34,34,35,.75);
-
-  background: url(../img/nav_bg.png) repeat-x top left;
-  /*
-  background-image: -webkit-linear-gradient(top, #555, #333);
-  background-image: -moz-linear-gradient(top, #555, #333);
-  background-image: -o-linear-gradient(top, #555, #333);
-  background-image: -ms-linear-gradient(top, #555, #333);
-  background-image: linear-gradient(to bottom, #555, #333);
-  */
   box-sizing: border-box;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -175,7 +165,8 @@ h6.page-title {
   display: block;
   width: 92px;
   height: 40px;
-  background: url(../img/product-logo.png) no-repeat top left;
+  margin-left:10px;
+  background: url(../img/xifi-small.png) no-repeat left;
 
 }
 
@@ -308,27 +299,17 @@ h6.page-title {
 .footer-logo {
   display: block;
   float: left;
-  width: 67px;
+  width: 80px;
   height: 34px;
-  background: url(../img/mirantis-logo-small2.png) no-repeat top left;
-  margin: 8px 0px 0px 10px;
+  background: url(../img/xifi-small.png) no-repeat top left;
+  margin: 15px 0px 0px 15px;
   overflow: hidden;
   cursor: pointer;
 }
 
-.footer-logo:hover {
-  display: block;
-  float: left;
-  width: 67px;
-  height: 34px;
-  background: url(../img/mirantis-logo-small2.png) no-repeat 0px -34px;
-  margin: 8px 0px 0px 10px;
-  overflow: hidden;
-}
-
 .footer-copyright {
   display: block;
-  padding: 14px 20px 0px 20px;
+  padding: 14px 20px 0px 0px;
   color: #f0f0f0;
   font-size: 11px;
   margin-top: 0px;
@@ -336,10 +317,10 @@ h6.page-title {
 
 .footer-version {
   display: block;
-  padding: 14px 20px 0px 20px;
   color: #7789a0;
+  padding: 5px 20px 0 0;
   font-size: 11px;
-  margin-top: 0px;
+  margin-top: 0px 
 }
 
 .footer-lang {
@@ -2951,7 +2932,7 @@ select[name=release] option {
   float: left;
   width: 110px;
   height: 60px;
-  background: url(../img/mirantis-logo-small.png) no-repeat top left;
+  /*background: url(../img/mirantis-logo-small.png) no-repeat top left;*/
   margin: 10px 0px 10px 10px;
   overflow: hidden;
 }
@@ -3343,6 +3324,15 @@ input.error:focus {
   float: left;
   padding: 0px;
   margin-right: 10px;
+  max-height: 40px;
+}
+
+.sub-parameter-control {
+  display: block;
+  float: left;
+  padding: 0px;
+  margin-right: 10px;
+  margin-left: 30px;
   max-height: 40px;
 }
 
@@ -4353,7 +4343,7 @@ input.input-append {
 .roles-panel label {
   display: block;
   float: left;
-  max-width: 200px;
+  max-width: 400px;
   padding-right: 20px;
 }
 

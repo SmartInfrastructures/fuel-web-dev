@@ -1,19 +1,5 @@
 <div class="footer-box">
-  <a href="http://www.mirantis.com" target="_blank" class="footer-logo"></a>
-  <div class="footer-copyright pull-left">Copyright &copy; 2013 Mirantis. All rights reserved.</div>
-  <% if (version) { %>
-    <div class="footer-version pull-right">Version: <%- version || '' %></div>
-  <% } %>
-  <div class="footer-lang pull-right">
-    <div class="dropdown dropup hide">
-      <button class="dropdown-toggle current-locale btn btn-link" data-toggle="dropdown"><%- currentLocale.name %></button>
-      <ul class="dropdown-menu locales">
-        <% _.each(locales, function(locale) { %>
-          <li>
-            <a data-locale="<%- locale.locale %>"><%- locale.name %></a>
-          </li>
-        <% }) %>
-      </ul>
-    </div>
-  </div>
+  <a href="http://www.fi-xifi.eu/" target="_blank" class="footer-logo"></a>
+  <div class="footer-copyright pull-left">FI-Ops v1.0: the one click FI-lab node deployment tool</div>
+  <div class="footer-version pull-right">based on <img alt="Fuel by Mirantis" src="/static/img/product-logo.png"/></div>
 </div>

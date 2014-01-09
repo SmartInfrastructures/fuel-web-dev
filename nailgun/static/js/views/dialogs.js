@@ -484,7 +484,7 @@ function(require, utils, models, simpleMessageTemplate, createClusterWizardTempl
         clusterWizardPanes.ClusterModePane,
         clusterWizardPanes.ClusterComputePane,
         clusterWizardPanes.ClusterNetworkPane,
-        clusterWizardPanes.ClusterStoragePane,
+        //clusterWizardPanes.ClusterStoragePane,
         clusterWizardPanes.ClusterAdditionalServicesPane,
         clusterWizardPanes.ClusterReadyPane
     ];
