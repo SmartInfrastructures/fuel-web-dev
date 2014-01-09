@@ -1,0 +1,32 @@
+<% if (disabled && release) { %>
+  <div class="alert" style="margin-bottom: 10px">Additional services are not available in <%- release.get('name') %></div>
+<% } %>
+<form class="form-horizontal" style="margin:0" onsubmit="return false">
+  <fieldset>
+    <div class="control-group">
+      <% var services = [
+        {
+            name: 'savanna',
+            label: 'Install Savanna',
+            description: 'Savanna enables on demand provisioning of Hadoop clusters to be deployed on OpenStack utilizing a variety of vendor distributions.'
+        },{
+            name: 'murano',
+            label: 'Install Murano',
+            description: 'Murano enables windows based datacenter services like Active Directory, IIS, Microsoft SQL and ASP.NET to be deployed on OpenStack.'
+        }
+      ] %>
+      <% _.each(services, function(service) { %>
+        <label class="parameter-box clearfix">
+          <div class="parameter-control">
+            <div class="custom-tumbler">
+              <input type="checkbox" name="<%= service.name %>" />
+              <!-- [if !IE |(gte IE 9)]> --><span>&nbsp;</span><!-- <![endif] -->
+            </div>
+          </div>
+          <div class="parameter-name"><%= service.label %></div>
+        </label>
+        <div class="modal-parameter-description"><%= service.description %></div>
+      <% }) %>
+    </div>
+  </fieldset>
+</form>

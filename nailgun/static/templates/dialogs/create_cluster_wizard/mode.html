@@ -1,0 +1,23 @@
+<form class="form-horizontal" onsubmit="return false">
+  <fieldset>
+    <div class="row-fluid control-group mode-control-group">
+      <div class="span5">
+         <% var modes = {'multinode': 'Multi-node', 'ha_compact': 'Multi-node with HA'} %>
+        <% _.each(availableModes, function(mode) { %>
+          <label class="parameter-box clearfix setting" >
+            <div class="parameter-control">
+              <div class="custom-tumbler">
+                <input type="radio" name="mode" value="<%= mode %>" />
+                <!-- [if !IE |(gte IE 9)]> --><span>&nbsp;</span><!-- <![endif] -->
+              </div>
+            </div>
+            <div class="openstack-sub-title parameter-name"><%= modes[mode] || mode %></div>
+          </label>
+        <% }) %>
+      </div>
+      <div class="span7">
+        <p class="help-block mode-description"></p>
+      </div>
+    </div>
+  </fieldset>
+</form>

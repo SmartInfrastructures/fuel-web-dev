@@ -1,0 +1,29 @@
+<div class="openstack-settings wrapper <%= locked ? 'changes-locked' : '' %>">
+
+  <h3 data-i18n="cluster_page.settings_tab.title">OpenStack Settings</h3>
+
+  <% if (cluster.get('settings').deferred.state() != 'pending') { %>
+    <div class="settings"></div>
+  <% } else { %>
+    <div class="row row-fluid">
+      <div class="span4"></div>
+      <div class="span4">
+        <div class="progress progress-striped progress-success active">
+          <div class="bar" style="width: 100%"></div>
+        </div>
+      </div>
+    </div>
+  <% } %>
+
+  <!-- page-control box -->
+  <div class="row">
+    <div class="page-control-box">
+      <div class="page-control-button-placeholder">
+        <button data-i18n="cluster_page.settings_tab.bt_load_defaults" class="btn btn-load-defaults"<%= locked || cluster.get('settings').deferred.state() == 'pending' ? ' disabled' : '' %>></button>
+        <button data-i18n="cluster_page.settings_tab.bt_cancel_changes" class="btn btn-revert-changes" disabled></button>
+        <button data-i18n="cluster_page.settings_tab.bt_save_settings" class="btn btn-success btn-apply-changes" disabled></button>
+      </div>
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,55 @@
+<% var disabled = locked ? 'disabled' : '' %>
+<% var ns = "cluster_page.settings_tab." + groupName + "." %>
+<legend class="openstack-settings"><%- $.t(ns + 'group_name', {defaultValue: groupName.replace('_', ' ')}) %></legend>
+<div class="settings-group" data-settings-group="<%- groupName %>">
+  <% var sortedSettings = _.sortBy(_.keys(settings), function(setting) {return settings[setting].weight;}) %>
+  <% _.each(sortedSettings, function(settingName) { %>
+    <% var setting = settings[settingName] %>
+    <% if (setting.type == 'checkbox') { %>
+      <label class="parameter-box clearfix">
+        <div class="parameter-control">
+          <div class="custom-tumbler">
+            <input type="checkbox" name="<%- settingName %>" <%= disabled %> />
+            <!-- [if !IE |(gte IE 9)]> --><span>&nbsp;</span><!-- <![endif] -->
+          </div>
+        </div>
+        <div class="openstack-sub-title parameter-name"><%- $.t(ns + settingName + '.label', {defaultValue: setting.label}) %></div>
+      </label>
+      <div class="global-description description"><%- $.t(ns + settingName + '.description', {defaultValue: setting.description}) %></div>
+    <% } else if (setting.type == 'radio') { %>
+      <legend class="openstack-sub-title"><%- $.t(ns + settingName + '.label', {defaultValue: setting.label}) %></legend>
+      <div>
+      <% _.each(setting.values, function(option) { %>
+        <label class="parameter-box clearfix">
+          <div class="parameter-control">
+            <div class="custom-tumbler">
+              <input type="radio" name="<%- settingName %>" value="<%- option['data'] %>" <%= disabled %> />
+              <!-- [if !IE |(gte IE 9)]> --><span>&nbsp;</span><!-- <![endif] -->
+            </div>
+          </div>
+          <div class="parameter-name"><%- $.t(ns + settingName + '.values.' + option.data + '.label', {defaultValue: option.label}) %></div>
+        </label>
+        <div class="global-description description">
+          <%- $.t(ns + settingName + '.values.' + option.data + '.description', {defaultValue: option.description || ' '}) %>
+        </div>
+      <% }) %>
+      </div>
+      <div class="parameter-spacer"></div>
+    <% } else if (setting.type != 'hidden') { %>
+      <label class="parameter-box clearfix">
+        <div class="openstack-sub-title parameter-name"><%- $.t(ns + settingName + '.label', {defaultValue: setting.label}) %></div>
+        <div class="parameter-control <%= setting.type == 'password' ? 'input-append' : '' %>">
+          <input type="<%= setting.type %>" class="<%= setting.type == 'password' ? 'input-append' : '' %>" name="<%- settingName %>" value="" <%= disabled %> />
+          <% if (setting.type == 'password') { %>
+            <span class="add-on"><i class="icon-eye"></i><i class="icon-eye-off hide"></i></span>
+          <% } %>
+        </div>
+        <% if (setting.description) { %>
+          <div class="parameter-description description"><%- $.t(ns + settingName + '.description', {defaultValue: setting.description}) %></div>
+        <% } else {%>
+          <div class="parameter-description description"></div>
+        <% } %>
+      </label>
+    <% } %>
+  <% }) %>
+</div>

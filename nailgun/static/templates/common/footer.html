@@ -1,0 +1,19 @@
+<div class="footer-box">
+  <a href="http://www.mirantis.com" target="_blank" class="footer-logo"></a>
+  <div class="footer-copyright pull-left">Copyright &copy; 2013 Mirantis. All rights reserved.</div>
+  <% if (version) { %>
+    <div class="footer-version pull-right">Version: <%- version || '' %></div>
+  <% } %>
+  <div class="footer-lang pull-right">
+    <div class="dropdown dropup hide">
+      <button class="dropdown-toggle current-locale btn btn-link" data-toggle="dropdown"><%- currentLocale.name %></button>
+      <ul class="dropdown-menu locales">
+        <% _.each(locales, function(locale) { %>
+          <li>
+            <a data-locale="<%- locale.locale %>"><%- locale.name %></a>
+          </li>
+        <% }) %>
+      </ul>
+    </div>
+  </div>
+</div>

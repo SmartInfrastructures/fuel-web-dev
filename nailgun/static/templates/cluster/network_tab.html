@@ -1,0 +1,54 @@
+<% var disabled = locked ? 'disabled' : '' %>
+<div class="network-settings wrapper <%= locked ? 'changes-locked' : '' %>">
+  <h3 data-i18n="cluster_page.network_tab.title">Network Settings</h3>
+  <% if (!loading || loading.state() != 'pending') { %>
+    <% if (net_provider == 'nova_network') { %>
+      <% var managers = {'FlatDHCPManager': $.t('cluster_page.network_tab.flatdhcp_manager', {defaultValue: 'FlatDHCP Manager'}), 'VlanManager': $.t('cluster_page.network_tab.vlan_manager', {defaultValue: 'VLAN Manager'}) } %>
+      <div class="radio-checkbox-group net-manager">
+        <% _.each(_.keys(managers), function(manager) { %>
+          <div class="item-box">
+            <label class="parameter-box clearfix">
+              <div class="parameter-control">
+                <div class="custom-tumbler">
+                  <input type="radio" value="<%= manager %>" name="net-manager" <%= net_manager == manager ? 'checked' : '' %> <%= locked ? 'disabled' : '' %>>
+                  <!-- [if !IE |(gte IE 9)]> --><span>&nbsp;</span><!-- <![endif] -->
+                </div>
+              </div>
+              <div class="parameter-name"><%= managers[manager] %></div>
+            </label>
+          </div>
+        <% }) %>
+      </div>
+      <hr>
+    <% } else { %>
+      <span class="network-segment-type">Neutron with <p><%= segment_type %></p> segmentation</span>
+    <% } %>
+    <div class="networks-table"></div>
+    <div class="nova-nameservers"></div>
+    <div class="neutron-parameters"></div>
+  <% } else { %>
+    <div class="row row-fluid">
+      <div class="span4"></div>
+      <div class="span4">
+        <div class="progress progress-striped progress-success active">
+          <div class="bar" style="width: 100%"></div>
+        </div>
+      </div>
+    </div>
+  <% } %>
+
+  <!-- Verification control -->
+  <hr>
+  <div class="row verification-control"></div>
+
+  <!-- Buttons -->
+  <div class="row">
+    <div class="page-control-box">
+      <div class="page-control-button-placeholder">
+        <button data-i18n="cluster_page.network_tab.bt_verify_networks" class="btn verify-networks-btn" <%= verificationLocked ? 'disabled' : '' %>>Verify Networks</button>
+        <button data-i18n="cluster_page.network_tab.bt_cancel_changes" class="btn btn-revert-changes" <%= locked || !hasChanges? 'disabled' : '' %>>Cancel Changes</button>
+        <button data-i18n="cluster_page.network_tab.bt_save_settings" class="btn btn-success apply-btn" <%= locked || !hasChanges ? 'disabled' : '' %>>Save Settings</button>
+      </div>
+    </div>
+  </div>
+</div>
