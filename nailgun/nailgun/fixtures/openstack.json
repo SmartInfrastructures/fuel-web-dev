@@ -787,6 +787,24 @@
                             "weight": 30,
                             "type": "radio"
                         },
+                         "dcrm": {
+                            "value": "pivot",
+                            "values": [
+                                {
+                                    "data": "pivot",
+                                    "label": "Pivot",
+                                    "description": "Choose this type of hypervisor if you run OpenStack on hardware"
+                                },
+                                {
+                                    "data": "pulsar",
+                                    "label": "Pulsar",
+                                    "description": "Choose this type of hypervisor if you run OpenStack on virtual hosts."
+                                }
+                            ],
+                            "label": "dcrm_scheduler",
+                            "weight": 30,
+                            "type": "radio"
+                        },
                         "start_guests_on_host_boot": {
                             "value": true,
                             "label": "Start guests on host boot",
@@ -1216,6 +1234,29 @@
             },
             "attributes_metadata": {
                 "editable": {
+                    "monitoring": {
+                            "nagios_host_check_interval": {
+                                "value": "60",
+                                "label": "Nagios host check interval",
+                                "description": "",
+                                "weight": 20,
+                                "type": "text"
+                            },
+                            "nagios_service_check_interval": {
+                                "value": "60",
+                                "label": "Nagios Service check interval",
+                                "description": "",
+                                "weight": 20,
+                                "type": "text"
+                            },
+                            "nagios_mail_alert": {
+                                "value": "admin@example.org",
+                                "label": "Mail alert",
+                                "description": "Email address for Nagios Alerting",
+                                "weight": 40,
+                                "type": "text"
+                            }
+                    },
                     "access": {
                         "user": {
                             "value": "admin",
@@ -1371,7 +1412,13 @@
                         }
                     },
                     "storage": {
-                       
+                        "obj_pool_size": {
+                            "value": "2",
+                            "label": "Object replication factor",
+                            "description": "Defines the number of object replicas. At least that many Swift Storage nodes must be deployed.",
+                            "weight": 70,
+                            "type": "text"
+                        }
                     }
                 },
                 "generated": {

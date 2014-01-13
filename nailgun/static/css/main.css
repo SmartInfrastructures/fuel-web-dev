@@ -3295,7 +3295,7 @@ input.error:focus {
 .parameter-name {
   display: block;
   float: left;
-  min-width: 120px;
+  min-width: 200px;
   max-height: 30px;
   box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -3343,7 +3343,7 @@ input.error:focus {
   box-sizing: border-box;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
-  width: 560px;
+  width: 520px;
   margin-top: 4px;
 }
 
