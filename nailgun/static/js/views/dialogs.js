@@ -384,7 +384,7 @@ function(require, utils, models, simpleMessageTemplate, createClusterWizardTempl
     });
 
     clusterWizardPanes.ClusterDcrmPane = views.WizardPane.extend({
-      title: 'Dcrm',
+      title: 'DCRM GE',
         template: _.template(clusterDcrmPaneTemplate),
         beforeSettingsSaving: function(settings) {
             try {
