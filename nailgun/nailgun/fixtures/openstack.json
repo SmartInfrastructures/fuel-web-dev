@@ -1244,7 +1244,7 @@
                             },
                             "nagios_service_check_interval": {
                                 "value": "60",
-                                "label": "Nagios Service check interval",
+                                "label": "Nagios service check interval",
                                 "description": "",
                                 "weight": 20,
                                 "type": "text"
@@ -1254,6 +1254,13 @@
                                 "label": "Mail alert",
                                 "description": "Email address for Nagios Alerting",
                                 "weight": 40,
+                                "type": "text"
+                            },
+                             "region_id": {
+                                "value": "",
+                                "label": "Region ID",
+                                "description": "Infrastructure region identifier",
+                                "weight": 20,
                                 "type": "text"
                             }
                     },
