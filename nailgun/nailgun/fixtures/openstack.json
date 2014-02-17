@@ -1234,34 +1234,78 @@
             },
             "attributes_metadata": {
                 "editable": {
-                    "monitoring": {
-                            "nagios_host_check_interval": {
-                                "value": "60",
-                                "label": "Nagios host check interval",
-                                "description": "",
-                                "weight": 20,
-                                "type": "text"
-                            },
-                            "nagios_service_check_interval": {
-                                "value": "60",
-                                "label": "Nagios service check interval",
-                                "description": "",
-                                "weight": 20,
-                                "type": "text"
-                            },
-                            "nagios_mail_alert": {
-                                "value": "admin@example.org",
-                                "label": "Mail alert",
-                                "description": "Email address for Nagios Alerting",
-                                "weight": 40,
-                                "type": "text"
-                            },
-                             "region_id": {
+                     "federation": {
+                            "region_id": {
                                 "value": "",
                                 "label": "Region ID",
                                 "description": "Infrastructure region identifier",
                                 "weight": 20,
                                 "type": "text"
+                            },
+                            "region_name": {
+                                "value": "",
+                                "label": "Region name",
+                                "description": "",
+                                "weight": 20,
+                                "type": "text"
+                            },
+                            "country": {
+                                "value": "",
+                                "label": "Country",
+                                "description": "",
+                                "weight": 20,
+                                "type": "text"
+                            },
+                            "latitude": {
+                                "value": "",
+                                "label": "Latitude",
+                                "description": "",
+                                "weight": 20,
+                                "type": "text"
+                            },
+                            "longitude": {
+                                "value": "",
+                                "label": "Longitude",
+                                "description": "",
+                                "weight": 20,
+                                "type": "text"
+                            },
+                            "monitoring_node_url": {
+                                "value": "",
+                                "label": "Monitoring node's url",
+                                "description": "",
+                                "weight": 20,
+                                "type": "text"
+                            }
+                    },
+                    "monitoring": {
+                            "nagios": {
+                                "value": false,
+                                "label": "Nagios",
+                                "description": "",
+                                "weight": 30,
+                                "type": "checkbox"
+                            },
+                            "openstack_data_collector": {
+                                "value": false,
+                                "label": "OpenStackDataCollector",
+                                "description": "",
+                                "weight": 31,
+                                "type": "checkbox"
+                            },
+                            "ngsi_adapter": {
+                                "value": false,
+                                "label": "NGSI Adapter",
+                                "description": "",
+                                "weight": 33,
+                                "type": "checkbox"
+                            },
+                            "context_broker": {
+                                "value": false,
+                                "label": "Context Broker",
+                                "description": "",
+                                "weight": 32,
+                                "type": "checkbox"
                             }
                     },
                     "access": {
@@ -1380,7 +1424,28 @@
                             "value": "",
                             "label": "Public Key",
                             "description": "Public key(s) to include in authorized_keys on deployed nodes",
-                            "weight": 80,
+                            "weight": 90,
+                            "type": "text"
+                        },
+                        "nagios_service_check_interval": {
+                            "value": "60",
+                            "label": "Nagios service check interval",
+                            "description": "",
+                            "weight": 90,
+                            "type": "text"
+                        },
+                        "nagios_host_check_interval": {
+                            "value": "60",
+                            "label": "Nagios host check interval",
+                            "description": "",
+                            "weight": 90,
+                            "type": "text"
+                        },
+                        "nagios_mail_alert": {
+                            "value": "admin@example.org",
+                            "label": "Mail alert",
+                            "description": "Email address for Nagios Alerting",
+                            "weight": 90,
                             "type": "text"
                         }
                     },
