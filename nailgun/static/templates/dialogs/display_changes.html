@@ -56,7 +56,7 @@
     <div class="deploy-task-notice"><i class="icon-attention"></i> Some nodes have error status after deployment. Redeployment is needed.</div>
   <% } %>
   <%
-    if (cluster.get('nodes').nodesAfterDeploymentWithRole('controller') < size) {
+    if (cluster.get('nodes').nodesAfterDeploymentWithRole('controller') < size -1) {
       canDeploy = false;
       warning = 'controller';
     } else if (!cluster.get('nodes').nodesAfterDeploymentWithRole('compute')) {
