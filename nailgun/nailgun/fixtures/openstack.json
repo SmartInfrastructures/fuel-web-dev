@@ -1272,61 +1272,82 @@
                             }
                     },
                     "monitoring": {
-                            "use_nagios": {
-                                "value": false,
-                                "label": "Nagios",
-                                "description": "Install Nagios on the Monitoring server and Nagios-Nrpes on the other servers",
-                                "weight": 30,
-                                "type": "checkbox"
-                            },
-                            "use_openstack_data_collector": {
-                                "value": false,
-                                "label": "OpenStackDataCollector",
-                                "description": "",
-                                "weight": 31,
-                                "type": "checkbox"
-                            },
-                            "use_ngsi_adapter": {
-                                "value": false,
-                                "label": "NGSI Adapter",
-                                "description": "",
-                                "weight": 33,
-                                "type": "checkbox"
-                            },
-                            "use_context_broker": {
-                                "value": false,
-                                "label": "Context Broker",
-                                "description": "",
-                                "weight": 32,
-                                "type": "checkbox"
-                            },
-                            "nagios_service_check_interval": {
-                                "value": "60",
-                                "label": "Nagios service check interval",
-                                "description": "",
-                                "weight": 90,
-                                "type": "text"
-                            },
-                            "nagios_host_check_interval": {
-                               "value": "60",
-                               "label": "Nagios host check interval",
-                               "description": "",
-                               "weight": 90,
-                               "type": "text"
-                            },
-                            "nagios_mail_alert": {
-                               "value": "admin@example.org",
-                               "label": "Mail alert",
-                               "description": "Email address for Nagios Alerting",
-                               "weight": 90,
-                              "type": "text"
-                            },
                             "monitoring_node_url": {
                                 "value": "",
                                 "label": "Federation Monitoring node's url",
                                 "description": "",
                                 "weight": 20,
                                 "type": "text"
+                            },
+                            "use_openstack_data_collector": {
+                                "value": false,
+                                "label": "OpenStackDataCollector",
+                                "description": "",
+                                "weight": 30,
+                                "type": "checkbox"
+                            },
+                            "use_ngsi_adapter": {
+                                "value": false,
+                                "label": "NGSI Adapter",
+                                "description": "",
+                                "weight": 40,
+                                "type": "checkbox"
+                            },
+                            "use_context_broker": {
+                                "value": false,
+                                "label": "Context Broker",
+                                "description": "",
+                                "weight": 50,
+                                "type": "checkbox"
+                            },
+                            "use_nam": {
+                                "value": false,
+                                "label": "NAM",
+                                "description": "",
+                                "weight": 60,
+                                "type": "checkbox"
+                            },
+                            "use_nagios": {
+                                "value": false,
+                                "label": "Nagios",
+                                "description": "Install Nagios on the Monitoring server and Nagios-Nrpes on the other servers",
+                                "weight": 70,
+                                "type": "checkbox"
+                            },
+                            "nagios_service_check_interval": {
+                                "value": "60",
+                                "label": "Nagios service check interval",
+                                "description": "",
+                                "weight": 71,
+                                "type": "text"
+                            },
+                            "nagios_host_check_interval": {
+                               "value": "60",
+                               "label": "Nagios host check interval",
+                               "description": "",
+                               "weight": 72,
+                               "type": "text"
+                            },
+                            "nagios_mail_alert": {
+                               "value": "admin@example.org",
+                               "label": "Mail alert",
+                               "description": "Email address for Nagios Alerting",
+                               "weight": 73,
+                              "type": "text"
+                            },
+                            "nagios_admin_username": {
+                               "value": "nagiosadmin",
+                               "label": "Username",
+                               "description": "Nagios administrator username",
+                               "weight": 74,
+                              "type": "text"
+                            },
+                            "nagios_admin_pwd": {
+                               "value": "nagiosadmin",
+                               "label": "Password",
+                               "description": "Nagios administrator password",
+                               "weight": 75,
+                              "type": "password"
                             }
                     },
                     "access": {
