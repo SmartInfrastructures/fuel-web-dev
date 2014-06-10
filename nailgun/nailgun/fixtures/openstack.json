@@ -1413,6 +1413,23 @@
                             "weight": 50,
                             "type": "checkbox"
                         },
+"identity_frontend": {                        
+                            "values": [
+                                {
+                                    "data": "keystone_horizon",
+                                    "label": "Keystone and Horizon",
+                                    "description": "Choose this option if you would install Keystone and Horizon."
+                                },
+                                {
+                                    "data": "keystoneproxy_cloudportal",
+                                    "label": "Keystone-Proxy and the Cloud Portal",
+                                    "description": "Choose this option if you would install Keystone-Proxy and the Cloud Portal"
+                                }
+],
+                            "label": "Identity Manager and Dashboard",
+                            "weight": 70,
+                            "type": "radio"
+                        },
                         "compute_scheduler_driver": {
                             "value": "nova.scheduler.filter_scheduler.FilterScheduler",
                             "values": [

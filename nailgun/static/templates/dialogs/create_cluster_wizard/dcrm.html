@@ -1,25 +1,26 @@
 <form class="form-horizontal dcrm-step" onsubmit="return false">
   <fieldset>
     <div class="control-group">
-      <p><b>FI-WARE DCRM GE</b></p>
-      <p>The DCRM GE provides the basic Virtual Machine (VM) hosting capabilities, as well as management of the corresponding resources within the DataCenter that hosts a particular XIFI Cloud Instance.</p>
-      
-      <% var schedulers = ['nova.scheduler.pivot_scheduler.PivotScheduler', 'nova.scheduler.filter_scheduler.FilterScheduler.Pulsar'] %>
-      <% var descriptions = {
-        pivot: 'Choose this type of hypervisor if you run OpenStack on hardware',
-        pulsar: 'Choose this type of hypervisor if you run OpenStack on virtual hosts'
-      } %>
-      <% _.each(schedulers, function(scheduler) { %>
+      <p><b>Nova and DCRM schedulers</b></p>
+      <p></p>
+      <% var schedulers = [{
+ 	'label':'Filter scheduler','value':'nova.scheduler.filter_scheduler.FilterScheduler','description':'Currently the most advanced OpenStack scheduler.','options':'checked=\'checked\''},
+	 {'label':'Simple scheduler','value':'nova.scheduler.simple.SimpleScheduler','description':'This is \'naive\' scheduler which tries to find the least loaded host','options':''},
+{'label':'IBM DCRM Pivot scheduler','value':'nova.scheduler.pivot_scheduler.PivotScheduler','description':'PIVOT is an advanced placement manager for clouds capable of deploying, optimizing and relocating virtual machines','options':''}, 
+{'label':'IBM DCRM Pulsar scheduler','value':'nova.scheduler.filter_scheduler.FilterScheduler.Pulsar','description':'ResourceManager Advanced Capacity Manager','options':''}
+] %>
+
+ <% _.each(schedulers, function(scheduler) { %>
         <label class="parameter-box clearfix">
           <div class="parameter-control">
             <div class="custom-tumbler">
-              <input type="radio" name="scheduler" value="<%= scheduler %>" />
+              <input type="radio" name="scheduler" value="<%= scheduler['value'] %>" <%- scheduler['options'] %>/>
               <!-- [if !IE |(gte IE 9)]> --><span>&nbsp;</span><!-- <![endif] -->
             </div>
           </div>
-          <div class="parameter-name"><%- scheduler %></div>
+          <div class="parameter-name"><%- scheduler['label'] %></div>
         </label>
-        <div class="modal-parameter-description"><%- descriptions[scheduler] %></div>
+        <div class="modal-parameter-description"><%- scheduler['description'] %></div>
       <% }) %>
     </div>
   </fieldset>
