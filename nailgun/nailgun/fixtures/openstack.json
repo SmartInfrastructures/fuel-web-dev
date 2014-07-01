@@ -1025,12 +1025,12 @@
                 },
                 "swift_proxy": {
                     "name": "Swift Proxy",
-                    "description": "Swift Proxy handles all incoming API requests.",
+                    "description": "Swift Proxy handles all incoming API requests (not yet implemented).",
                     "conflicts": ["compute,monitoring,cinder,identity,empty,swift_storage"]
                 },
                 "swift_storage": {
                     "name": "Swift Storage",
-                    "description": "It is a blob storage server that can store, retrieve and delete objects stored on local devices.",
+                    "description": "It is a blob storage server that can store, retrieve and delete objects stored on local devices (not yet implemented).",
                     "conflicts": ["controller,compute,monitoring,cinder,identity,empty,swift_proxy"]
                 }
             },
@@ -1307,7 +1307,7 @@
                             },
                             "use_nam": {
                                 "value": false,
-                                "label": "NAM",
+                                "label": "NAM (not yet implemented)",
                                 "description": "",
                                 "weight": 60,
                                 "type": "checkbox"
