@@ -991,7 +991,7 @@
                     "description": "This configuration requires multiple OpenStack controllers (2+) and provides high availability for all OpenStack components, including MySQL/Galera, RabbitMQ, and Cinder, as well as OpenStack API services. Select this configuration if you want to build a production-grade OpenStack cloud with 6 nodes or more."
                 }
             },
-            "roles": ["controller", "compute", "cinder", "monitoring", "empty", "swift_proxy", "swift_storage"],
+            "roles": ["controller", "compute", "cinder", "monitoring", "identity", "empty", "swift_proxy", "swift_storage"],
             "roles_metadata": {
                 "controller": {
                     "name": "Controller",
@@ -1025,12 +1025,12 @@
                 },
                 "swift_proxy": {
                     "name": "Swift Proxy",
-                    "description": "Swift Proxy handles all incoming API requests.",
+                    "description": "Swift Proxy handles all incoming API requests (not yet implemented).",
                     "conflicts": ["compute,monitoring,cinder,identity,empty,swift_storage"]
                 },
                 "swift_storage": {
                     "name": "Swift Storage",
-                    "description": "It is a blob storage server that can store, retrieve and delete objects stored on local devices.",
+                    "description": "It is a blob storage server that can store, retrieve and delete objects stored on local devices (not yet implemented).",
                     "conflicts": ["controller,compute,monitoring,cinder,identity,empty,swift_proxy"]
                 }
             },
@@ -1303,13 +1303,6 @@
                                 "label": "Context Broker",
                                 "description": "",
                                 "weight": 50,
-                                "type": "checkbox"
-                            },
-                            "use_nam": {
-                                "value": false,
-                                "label": "NAM",
-                                "description": "",
-                                "weight": 60,
                                 "type": "checkbox"
                             },
                             "use_nagios": {
