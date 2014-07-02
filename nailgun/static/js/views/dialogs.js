@@ -24,7 +24,6 @@ define(
     'text!templates/dialogs/create_cluster_wizard/mode.html',
     'text!templates/dialogs/create_cluster_wizard/compute.html',
     'text!templates/dialogs/create_cluster_wizard/dcrm.html',
-    'text!templates/dialogs/create_cluster_wizard/fiware.html',
     'text!templates/dialogs/create_cluster_wizard/network.html',
     'text!templates/dialogs/create_cluster_wizard/storage.html',
     'text!templates/dialogs/create_cluster_wizard/additional.html',
@@ -38,7 +37,7 @@ define(
     'text!templates/dialogs/dismiss_settings.html',
     'text!templates/dialogs/delete_nodes.html'
 ],
-function(require, utils, models, simpleMessageTemplate, createClusterWizardTemplate, clusterNameAndReleasePaneTemplate, clusterModePaneTemplate, clusterComputePaneTemplate, clusterDcrmPaneTemplate, clusterFiWarePaneTemplate, clusterNetworkPaneTemplate, clusterStoragePaneTemplate, clusterAdditionalServicesPaneTemplate, clusterReadyPaneTemplate, rhelCredentialsDialogTemplate, discardChangesDialogTemplate, displayChangesDialogTemplate, removeClusterDialogTemplate, errorMessageTemplate, showNodeInfoTemplate, discardSettingsChangesTemplate, deleteNodesTemplate) {
+function(require, utils, models, simpleMessageTemplate, createClusterWizardTemplate, clusterNameAndReleasePaneTemplate, clusterModePaneTemplate, clusterComputePaneTemplate, clusterDcrmPaneTemplate, clusterNetworkPaneTemplate, clusterStoragePaneTemplate, clusterAdditionalServicesPaneTemplate, clusterReadyPaneTemplate, rhelCredentialsDialogTemplate, discardChangesDialogTemplate, displayChangesDialogTemplate, removeClusterDialogTemplate, errorMessageTemplate, showNodeInfoTemplate, discardSettingsChangesTemplate, deleteNodesTemplate) {
     'use strict';
 
     var views = {};
@@ -403,24 +402,6 @@ function(require, utils, models, simpleMessageTemplate, createClusterWizardTempl
         }
     });
 
-    clusterWizardPanes.ClusterFiWarePane = views.WizardPane.extend({
-      title: 'Identity Manager and Dashboard',
-        template: _.template(clusterFiWarePaneTemplate),
-        beforeSettingsSaving: function(settings) {
-            try {
-                if (this.$('input[name=identity_frontend]:checked').val() !== undefined) 
-                    settings.get('editable').common.identity_frontend.value = this.$('input[name=identity_frontend]:checked').val();
-                } catch(e) {
-                return (new $.Deferred()).reject();
-            }
-            return (new $.Deferred()).resolve();
-        },
-        render: function() {
-            this.$el.html(this.template());
-            //this.$('input[name=scheduler][value=]').prop('checked', true);
-            return this;
-        }
-    });
     clusterWizardPanes.ClusterNetworkPane = views.WizardPane.extend({
         title: 'Network',
         releaseDependent: true,
@@ -523,10 +504,7 @@ function(require, utils, models, simpleMessageTemplate, createClusterWizardTempl
         clusterWizardPanes.ClusterModePane,
         clusterWizardPanes.ClusterComputePane,
         clusterWizardPanes.ClusterDcrmPane,
-        clusterWizardPanes.ClusterFiWarePane,
         clusterWizardPanes.ClusterNetworkPane,
-        //clusterWizardPanes.ClusterStoragePane,
-        //clusterWizardPanes.ClusterAdditionalServicesPane,
         clusterWizardPanes.ClusterReadyPane
     ];
 
