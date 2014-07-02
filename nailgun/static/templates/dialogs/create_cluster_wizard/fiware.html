@@ -1,0 +1,22 @@
+<form class="form-horizontal fiware-step" onsubmit="return false">
+  <fieldset>
+    <div class="control-group">
+      <p><b>FI-WARE</b></p>
+      <p></p>
+      <% var identity_frontends = [{'label':'Keystone and Horizon','value':'keystone_horizon','description':'Choose this option if you would install Keystone and Horizon','options':'checked=\'checked\''}, {'label':'Keystone-Proxy and Cloud Portal','value':'keystoneproxy_cloudportal','description':'Choose this option if you would install Keystone-Proxy and the Cloud Portal','options':''}] %>
+
+     <% _.each(identity_frontends, function(identity_frontend) { %>
+        <label class="parameter-box clearfix">
+          <div class="parameter-control">
+            <div class="custom-tumbler">
+              <input type="radio" name="identity_frontend" value="<%= identity_frontend['value'] %>" <%- identity_frontend['options'] %>/>
+              <!-- [if !IE |(gte IE 9)]> --><span>&nbsp;</span><!-- <![endif] -->
+            </div>
+          </div>
+          <div class="parameter-name"><%- identity_frontend['label'] %></div>
+        </label>
+        <div class="modal-parameter-description"><%- identity_frontend['description'] %></div>
+      <% }) %>
+    </div>
+  </fieldset>
+</form>
