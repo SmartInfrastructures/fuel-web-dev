@@ -140,8 +140,11 @@ class DeploymentMultiSerializer(object):
             n['priority'] = prior.next
 
         other_nodes_prior = prior.next
-        for n in cls.not_roles(nodes, 'controller'):
+        for n in cls.not_roles(nodes, ['controller','monitoring']):
             n['priority'] = other_nodes_prior
+
+	for n in cls.by_role(nodes, 'monitoring'):
+            n['priority'] = prior.next
 
     @classmethod
     def serialize_nodes(cls, nodes):
@@ -341,9 +344,11 @@ class DeploymentHASerializer(DeploymentMultiSerializer):
                                        'storage',
                                        'primary-controller',
                                        'controller',
-                                       'quantum']):
+                                       'quantum',
+				       'monitoring']):
             n['priority'] = other_nodes_prior
-
+        for n in cls.by_role(nodes, 'monitoring'):
+            n['priority'] = prior.next
 
 class NetworkDeploymentSerializer(object):
 
