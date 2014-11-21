@@ -14,7 +14,7 @@ AUTH:
   auth_version: "v2.0"
 
 VERSION:
-  release: "5.0"
+  release: "2.0"
   api: "1"
   nailgun_sha: "Unknown build"
   astute_sha: "Unknown build"

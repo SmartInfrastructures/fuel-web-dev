@@ -451,6 +451,34 @@
             type: "checkbox"
             restrictions:
               - "settings:storage.volumes_ceph.value == true"
+        monitoring:
+          metadata:
+             label: "Monitoring"
+             weight: 70
+          monitoring_server:
+            value: "monitoring_server"
+            values:
+              - data: "zabbix"
+                label: "Zabbix"
+                description: ""
+              - data: "nagios"
+                label: "Nagios (v 3.5.1)"
+                description: ""
+            label: "Monitoring System"
+            weight: 10
+            type: "radio"
+          nagios_service_check_interval:
+            value: ""
+            label: "Nagios check service"
+            description: "Configures the time period to wait before Nagios schedules a service check."
+            weight: 20
+            type: "text"
+          nagios_host_check_interval:
+            value: ""
+            label: "Nagios check host"
+            description: "Configures the time period to wait before Nagios schedules a host check."
+            weight: 20
+            type: "text"
         zabbix:
           metadata:
             label: "Zabbix Access"
@@ -470,6 +498,25 @@
             description: "Password for Zabbix Administrator"
             weight: 20
             type: "password"
+        nagios:
+          metadata:
+            label: "Nagios Access"
+            weight: 70
+            restrictions:
+              - condition: "not ('experimental' in version:feature_groups)"
+                action: "hide"
+          username:
+            value: "admin"
+            label: "username"
+            description: "Username for Nagios Administrator"
+            weight: 10
+            type: "text"
+          password:
+            value: "zabbix"
+            label: "password"
+            description: "Password for Nagios Administrator"
+            weight: 20
+            type: "password"            
       generated:
         mysql:
           root_password:
@@ -521,6 +568,7 @@
       - ceph-osd
       - mongo
       - zabbix-server
+      - monitoring
     roles_metadata:
       ceph-osd:
         name: "Storage - Ceph OSD"
@@ -546,6 +594,19 @@
         depends:
           - condition: "'experimental' in version:feature_groups"
             action: "hide"
+      monitoring:
+        name: "Monitoring"
+        description: "Monitoring system server."
+        conflicts:
+          - controller
+          - compute
+          - cinder
+          - ceph-osd
+          - mongo
+          - zabbix-server
+        depends:
+          - condition: "'experimental' in version:feature_groups"
+            action: "hide"            
     networks_metadata:
       neutron:
         networks:
@@ -875,6 +936,11 @@
           metering_secret:
             generator: "password"
         zabbix:
+          db_password:
+            generator: "password"
+          db_root_password:
+            generator: "password"
+        nagios:
           db_password:
             generator: "password"
           db_root_password:
