@@ -22,6 +22,7 @@ VERSION:
   ostf_sha: "Unknown build"
   feature_groups:
     - experimental
+    - fiware
 
 FUEL_KEY: "Unknown"
 
