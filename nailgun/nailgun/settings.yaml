@@ -21,7 +21,7 @@ VERSION:
   fuellib_sha: "Unknown build"
   ostf_sha: "Unknown build"
   feature_groups:
-    #- experimental
+    - experimental
     - fiware
 
 FUEL_KEY: "Unknown"

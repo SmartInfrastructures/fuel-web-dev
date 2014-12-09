@@ -494,6 +494,24 @@
             restrictions:
               - condition: "not ('fiware' in version:feature_groups)"
                 action: "hide"
+          context_broker:
+            value: false
+            label: "Install Context Broker"
+            description: "If selected, Context Broker (0.17 release) component will be installed"
+            weight: 30
+            type: "checkbox"
+          ngsi_adapter:
+            value: false
+            label: "Install NGSI Adapter"
+            description: "If selected, NGSI Adapter (1.2.0 release) component will be installed"
+            weight: 31
+            type: "checkbox"
+          odc:
+            value: false
+            label: "Install OpenStackDataCollector"
+            description: "If selected, OpenStackDataCollector component will be installed"
+            weight: 32
+            type: "checkbox"
         zabbix:
           metadata:
             label: "Zabbix Access"
