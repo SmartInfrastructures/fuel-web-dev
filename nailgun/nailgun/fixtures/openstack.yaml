@@ -722,6 +722,9 @@
         zabbix-server:
           - {allocate_size: "min", id: "os"}
           - {allocate_size: "all", id: "mysql"}
+        monitoring:
+          - {allocate_size: "min", id: "os"}
+          - {allocate_size: "all", id: "mysql"}
       volumes:
         - id: "mongo"
           type: "vg"
