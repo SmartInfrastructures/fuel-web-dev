@@ -539,7 +539,7 @@
               - condition: "not ('fiware' in version:feature_groups)"
                 action: "hide"
           username:
-            value: "admin"
+            value: "nagiosadmin"
             label: "username"
             description: "Username for Nagios Administrator"
             weight: 10
