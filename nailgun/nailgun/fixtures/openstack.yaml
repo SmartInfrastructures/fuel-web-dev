@@ -549,7 +549,7 @@
             label: "password"
             description: "Password for Nagios Administrator"
             weight: 20
-            type: "password"            
+            type: "password"
       generated:
         mysql:
           root_password:
