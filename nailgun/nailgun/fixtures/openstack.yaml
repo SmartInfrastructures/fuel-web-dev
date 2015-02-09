@@ -549,7 +549,13 @@
             label: "password"
             description: "Password for Nagios Administrator"
             weight: 20
-            type: "password"            
+            type: "password"
+          region:
+            value: ""
+            label: "region"
+            description: "Federation Region Name"
+            weight: 10
+            type: "text"
       generated:
         mysql:
           root_password:
