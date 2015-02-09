@@ -557,8 +557,8 @@
                   }
                 },
                 "uglify-js": {
-                  "version": "2.3.6",
-                  "from": "uglify-js@~2.3",
+                  "version": "~2.4.16",
+                  "from": "uglify-js@~2.4.16",
                   "dependencies": {
                     "async": {
                       "version": "0.2.10",
@@ -1942,9 +1942,9 @@
       "version": "2.1.14",
       "from": "requirejs@~2.1.9"
     },
-    "uglifyjs": {
-      "version": "2.3.6",
-      "from": "uglifyjs@~2.3.6",
+    "uglify-js": {
+      "version": "2.4.16",
+      "from": "uglifyjs@~2.4.16",
       "dependencies": {
         "async": {
           "version": "0.2.10",
