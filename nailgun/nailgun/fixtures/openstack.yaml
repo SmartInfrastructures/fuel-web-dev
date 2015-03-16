@@ -654,7 +654,7 @@
           - zabbix-server
         depends:
           - condition: "'fiware' in version:feature_groups"
-            action: "hide"            
+            action: "hide"
     networks_metadata:
       neutron:
         networks:
