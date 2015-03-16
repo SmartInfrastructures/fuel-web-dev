@@ -565,6 +565,13 @@
             description: "Password for Nagios Administrator"
             weight: 20
             type: "password"
+        empty:
+          metadata:
+             label: "Empty"
+             weight: 70
+             restrictions:
+              - condition: "not ('fiware' in version:feature_groups) and not ('experimental' in version:feature_groups)"
+                action: "hide"
       generated:
         mysql:
           root_password:
@@ -617,6 +624,7 @@
       - mongo
       - zabbix-server
       - monitoring
+      - empty
     roles_metadata:
       ceph-osd:
         name: "Storage - Ceph OSD"
@@ -652,6 +660,20 @@
           - ceph-osd
           - mongo
           - zabbix-server
+        depends:
+          - condition: "'fiware' in version:feature_groups"
+            action: "hide"
+      empty:
+        name: "Empty"
+        description: "Empty server."
+        conflicts:
+          - controller
+          - compute
+          - cinder
+          - ceph-osd
+          - mongo
+          - zabbix-server
+          - monitoring
         depends:
           - condition: "'fiware' in version:feature_groups"
             action: "hide"
@@ -740,6 +762,8 @@
         monitoring:
           - {allocate_size: "min", id: "os"}
           - {allocate_size: "all", id: "mysql"}
+        empty:
+          - {allocate_size: "all", id: "os"}
       volumes:
         - id: "mongo"
           type: "vg"
