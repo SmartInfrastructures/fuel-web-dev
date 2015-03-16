@@ -494,6 +494,15 @@
             restrictions:
               - condition: "not ('fiware' in version:feature_groups)"
                 action: "hide"
+          nagios_email:
+            value: ""
+            label: "Nagios Notifications Email"
+            description: "Email recipient for nagios notifications."
+            weight: 25
+            type: "text"
+            restrictions:
+              - condition: "not ('fiware' in version:feature_groups)"
+                action: "hide"
           region:
             value: ""
             label: "Region name"
