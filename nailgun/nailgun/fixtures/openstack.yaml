@@ -769,7 +769,7 @@
           - {allocate_size: "all", id: "mysql"}
         empty:
           - {allocate_size: "min", id: "os"}
-          - {allocate_size: "all", id: "mysql"}
+          - {allocate_size: "all", id: "minimal"}
       volumes:
         - id: "mongo"
           type: "vg"
