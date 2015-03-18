@@ -134,6 +134,11 @@
           label: "Cinder"
           min_size: {generator: "calc_min_cinder_size"}
           volumes: []
+        - id: "minimal"
+          type: "vg"
+          label: "minimal"
+          min_size: {generator: "calc_boot_size"}
+          volumes: []
     attributes_metadata:
       editable:
         access:
