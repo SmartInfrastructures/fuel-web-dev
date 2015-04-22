@@ -562,7 +562,7 @@
             label: "Latitude"
             description: ""
             weight: 20
-            type: "text
+            type: "text"
           longitude:
             value: ""
             label: "Longitude"
