@@ -529,9 +529,52 @@
           odc:
             value: false
             label: "Install OpenStackDataCollector"
-            description: "If selected, OpenStackDataCollector (1.2 release) component will be installed"
+            description: "If selected, OpenStackDataCollector component will be installed"
             weight: 33
             type: "checkbox"
+        federation:
+          metadata:
+            label: "Federation Data"
+            weight: 80
+            restrictions:
+              - condition: "not ('experimental' in version:feature_groups)"
+                action: "hide"
+          region_id:
+            value: ""
+            label: "Region ID"
+            description: "Infrastructure region identifier"
+            weight: 20
+            type: "text"
+          region_name:
+            value: ""
+            label: "Region name"
+            description: ""
+            weight: 20
+            type: "text"
+          country:
+            value: ""
+            label: "Country"
+            description: ""
+            weight: 20
+            type: "text"
+          latitude:
+            value: ""
+            label: "Latitude"
+            description: ""
+            weight: 20
+            type: "text
+          longitude:
+            value: ""
+            label: "Longitude"
+            description": ""
+            weight: 20
+            type: "text"
+          public_ext_net:
+            value: ""
+            label: "Public External Network"
+            description": ""
+            weight: 20
+            type: "text"
         zabbix:
           metadata:
             label: "Zabbix Access"
