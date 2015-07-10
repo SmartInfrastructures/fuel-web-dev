@@ -338,11 +338,14 @@ function($, _, i18n, Backbone, React, utils, models, controls, componentMixins, 
             var version = this.props.version;
             return (
                 <div className='footer'>
+                   <div>
+                        <a href='https://www.fiware.org/fiware-operations/' target='_blank' className='footer-logo-cn'></a>
+                        <div className='footer-copyright pull-left'>FI-Ops 4.0: the one click FI-lab node deployment tool</div>
+                    </div>
                     {_.contains(version.get('feature_groups'), 'mirantis') && [
                         <a key='logo' className='mirantis-logo-white' href='http://www.mirantis.com/' target='_blank'></a>,
                         <div key='copyright'>{i18n('common.copyright')}</div>
                     ]}
-                    <div key='version'>{i18n('common.version')}: {version.get('release')}</div>
                 </div>
             );
         }
