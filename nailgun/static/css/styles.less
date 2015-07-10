@@ -463,6 +463,16 @@ label {cursor: default;}
   cursor: pointer;
 }
 
+.footer-logo-cn {
+  .float-mixin;
+  .width-height-mixin(67px, 34px);
+  background: url(../img/fiops-small.png) no-repeat top left;
+  margin: 8px 0px 0px 10px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+
 .footer-logo:hover {
   .float-mixin;
   .width-height-mixin(67px, 34px);
@@ -592,7 +602,7 @@ label {cursor: default;}
         .logo {
           display: block;
           .width-height-mixin(92px, @navigation-bar-height);
-          .at2x('../img/product-logo.png', top, left, 92px);
+          .at2x('../img/fiops-small.png', top, left, 92px);
         }
       }
     }
