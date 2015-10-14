@@ -256,7 +256,7 @@ function($, _, i18n, i18next, Backbone, React, utils, models, componentMixins, d
                         }
                         <div>
                             <a href='https://www.fiware.org/fiware-operations/' target='_blank' className='footer-logo-cn'></a>
-                            <div className='footer-copyright pull-left'>FI-Ops 3.0: the one click FI-lab node deployment too</div>
+                            <div className='footer-copyright pull-left'>FI-Ops 3.0: the one click FI-lab node deployment tool</div>
                         </div>
                         {version.get('release') &&
                             <div className='footer-version pull-right'>Version: {version.get('release')}</div>
